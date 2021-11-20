@@ -6,6 +6,10 @@ A brief description of what this project does and who it's for
 
 Any additional information goes here
 
+## Demo
+
+<https://agente-agenda.herokuapp.com/login>
+
 ## Tech Stack
 
 **Client:** [Flask Dashboard](https://github.com/app-generator/boilerplate-code-flask-dashboard)
@@ -14,22 +18,22 @@ Any additional information goes here
 
 ## Deployment
 
-To deploy this project run
+To deploy this project in Docker run
 
 ```bash
-
+docker-compose pull   # download dependencies
+docker-compose build  # local set up
+docker-compose up -d  # start the app
 ```
 
-## Demo
-
-<https://agente-agenda.herokuapp.com/login>
+Visit `http://localhost:8080` in your browser. The app should be up & running.
 
 ## Installation
 
-Install my-project with npm
+Install my-project with
 
 ```bash
-
+  
 ```
 
 ## Run Locally
@@ -37,13 +41,13 @@ Install my-project with npm
 Clone the project
 
 ```bash
-  git clone https://github.com/RCristiano/agente-agenda
+git clone https://github.com/RCristiano/agente-agenda
 ```
 
 Go to the project directory
 
 ```bash
-  cd agente-agenda
+cd agente-agenda
 ```
 
 Create a virtual environment
@@ -56,26 +60,16 @@ source venv/bin/activate
 Install dependencies
 
 ```bash
-  pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Start the server
 
 ```bash
-  flask run --host=0.0.0.0 --port=5000
+flask run --host=0.0.0.0 --port=5000
 ```
 
-Access the dashboard in browser: <http://127.0.0.1:5000/>
-
-### Start the app in Docker
-
-```bash
-docker-compose pull   # download dependencies
-docker-compose build  # local set up
-docker-compose up -d  # start the app
-```
-
-Visit `http://localhost:8080` in your browser. The app should be up & running.
+Access the dashboard in browser: `http://127.0.0.1:5000/`
 
 ## Running Tests
 
