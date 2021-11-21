@@ -33,7 +33,7 @@ Visit `http://localhost:8080` in your browser. The app should be up & running.
 Install my-project with
 
 ```bash
-  
+
 ```
 
 ## Run Locally
@@ -53,7 +53,7 @@ cd agente-agenda
 Create a virtual environment
 
 ```bash
-virtualenv venv
+python -m venv venv
 source venv/bin/activate
 ```
 
