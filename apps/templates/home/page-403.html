@@ -25,7 +25,7 @@
 
     <div class="login-logo">
         <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">Flask <b>Admin</b>LTE</a>
+           href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">AGENTE<b>AGENDA</b></a>
     </div>
 
     <!-- /.login-logo -->
@@ -38,12 +38,12 @@
         </h5>
         <p class="login-box-msg">
           Authentication is required to access this resource 
-          - please <a href="{{ url_for('base_blueprint.login') }}" class="text-center">Login</a>
+          - please <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Login</a>
         </p>
 
         <br />
         <div class="text-center">
-            Not a member? <a href="{{ url_for('base_blueprint.register') }}" class="text-center">Register</a>
+            Not a member? <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Register</a>
             <br />
             <br />
             &copy; ColorLib 
