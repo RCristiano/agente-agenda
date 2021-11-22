@@ -3,7 +3,7 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for, flash
 from flask_login import current_user, login_user, logout_user
 
 from apps import db, login_manager
@@ -85,6 +85,16 @@ def register():
         db.session.add(user)
         db.session.commit()
 
+        flash(
+            """
+            {
+                icon: 'success',
+                title: 'Your account has been created. You can now log in.',
+                showConfirmButton: false,
+                timer: 3000
+            }
+            """
+        )
         return redirect(url_for("authentication_blueprint.login"))
 
     return render_template("accounts/register.html", form=create_account_form)

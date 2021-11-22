@@ -1,11 +1,15 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Login {% endblock %} 
+{% block title %}
+  Login
+{% endblock %}
 
 <!-- Element injected in the BODY element -->
-{% block body_class %} login-page {% endblock body_class %}
+{% block body_class %}
+  login-page
+{% endblock body_class %}
 
-<!-- Specific Page CSS goes HERE  -->
+<!-- Specific Page CSS goes HERE -->
 {% block stylesheets %}
 
   <!-- Google Font: Source Sans Pro -->
@@ -14,6 +18,8 @@
   <link rel="stylesheet" href="/static/assets/plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="/static/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="/static/assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/static/assets/css/adminlte.min.css">
 
@@ -24,20 +30,20 @@
   <div class="login-box">
 
     <div class="login-logo">
-        <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">AGENTE<b>AGENDA</b></a>
+      <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">AGENTE<b>AGENDA</b>
+      </a>
     </div>
 
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
 
-            <p class="login-box-msg">
-            {% if msg %}
-                {{ msg | safe }}
-            {% else %}
-                Add your credentials
-            {% endif %}
+        <p class="login-box-msg">
+          {% if msg %}
+            {{ msg | safe }}
+          {% else %}
+            Add your credentials
+          {% endif %}
         </p>
 
         <form method="post" action="">
@@ -77,16 +83,18 @@
           </div>
         </form>
 
-        <br /><br />
+        <br/><br/>
 
         <div class="text-center">
-            Not a member? <a href="{{ url_for('authentication_blueprint.register') }}" class="text-center">Register</a>
-            <br />
-            <br />
-            &copy; ColorLib 
-            <a target="_blank" rel="noopener noreferrer"
-               href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte"><b>Admin</b>LTE</a> 
-            - coded by <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
+          Not a member?
+          <a href="{{ url_for('authentication_blueprint.register') }}" class="text-center">Register</a>
+          <br/>
+          <br/>
+          &copy; ColorLib
+          <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">
+            <b>Admin</b>LTE</a>
+          - coded by
+          <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
         </div>
 
       </div>
@@ -97,12 +105,27 @@
 
 {% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
+<!-- Specific Page JS goes HERE -->
 {% block javascripts %}
 
   <!-- jQuery -->
   <script src="/static/assets/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="/static/assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+  <script>
+  
+  {% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+        Swal.fire({{ message | safe }})
+      {% endfor %}
+   {% endif %}
+  {% endwith %}
+
+  </script>
+
 
 {% endblock javascripts %}
