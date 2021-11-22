@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="/static/assets/plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="/static/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="/static/assets/plugins/toastr/toastr.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/static/assets/css/adminlte.min.css">
 
@@ -40,7 +42,10 @@
               {% for field, errors in form
                 .errors
                 .items() %}
-                {{ ', '.join(errors) }}
+                <div class="invalid-feedback" style="display: block;">
+                  <b>{{ field }}:</b>
+                  {{ errors|join(", ") }}
+                </div>
               {% endfor %}
             </span>
           {% else %}
@@ -140,5 +145,15 @@
   <script src="/static/assets/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Toastr -->
+  <script src="/static/assets/plugins/toastr/toastr.min.js"></script>
+
+  <script>
+  
+  {% for field, errors in form.errors.items() %}
+    toastr.error("{{ field }}:{{ errors|join(', ') }}")
+  {% endfor %}
+
+  </script>
 
 {% endblock javascripts %}
