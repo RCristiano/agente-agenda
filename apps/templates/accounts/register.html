@@ -30,7 +30,7 @@
   <div class="register-box">
 
     <div class="login-logo">
-      <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">AGENTE<b>AGENDA</b>
+      <a target="_blank" rel="noopener noreferrer" href="/">AGENTE<b>AGENDA</b>
       </a>
     </div>
 
@@ -149,11 +149,9 @@
   <script src="/static/assets/plugins/toastr/toastr.min.js"></script>
 
   <script>
-  
-  {% for field, errors in form.errors.items() %}
-    toastr.error("{{ field }}:{{ errors|join(', ') }}")
-  {% endfor %}
-
+    { % for field, errors in form.errors.items() %}
+    toastr.error("{{ field }}:{{ errors|join(', ') }}") { % endfor %
+    }
   </script>
 
 {% endblock javascripts %}

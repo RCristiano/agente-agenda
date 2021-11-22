@@ -1,11 +1,15 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Error 500 {% endblock %} 
+{% block title %}
+  Error 500
+{% endblock %}
 
 <!-- Element injected in the BODY element -->
-{% block body_class %} login-page {% endblock body_class %}
+{% block body_class %}
+  login-page
+{% endblock body_class %}
 
-<!-- Specific Page CSS goes HERE  -->
+<!-- Specific Page CSS goes HERE -->
 {% block stylesheets %}
 
   <!-- Google Font: Source Sans Pro -->
@@ -24,8 +28,8 @@
   <div class="login-box">
 
     <div class="login-logo">
-        <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">AGENTE<b>AGENDA</b></a>
+      <a target="_blank" rel="noopener noreferrer" href="/">AGENTE<b>AGENDA</b>
+      </a>
     </div>
 
     <!-- /.login-logo -->
@@ -37,15 +41,17 @@
           Error 500 - Server Error
         </h5>
         <p class="login-box-msg">
-          Please contact support - <a href="/" class="text-center">Home</a>
+          Please contact support -
+          <a href="/" class="text-center">Home</a>
         </p>
 
-        <br />
+        <br/>
         <div class="text-center">
-            &copy; ColorLib 
-            <a target="_blank" rel="noopener noreferrer"
-               href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte"><b>Admin</b>LTE</a> 
-            - coded by <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
+          &copy; ColorLib
+          <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">
+            <b>Admin</b>LTE</a>
+          - coded by
+          <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
         </div>
 
       </div>
@@ -56,7 +62,7 @@
 
 {% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
+<!-- Specific Page JS goes HERE -->
 {% block javascripts %}
 
   <!-- jQuery -->

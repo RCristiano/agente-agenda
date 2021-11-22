@@ -1,11 +1,15 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Error 403 {% endblock %} 
+{% block title %}
+  Error 403
+{% endblock %}
 
 <!-- Element injected in the BODY element -->
-{% block body_class %} login-page {% endblock body_class %}
+{% block body_class %}
+  login-page
+{% endblock body_class %}
 
-<!-- Specific Page CSS goes HERE  -->
+<!-- Specific Page CSS goes HERE -->
 {% block stylesheets %}
 
   <!-- Google Font: Source Sans Pro -->
@@ -24,8 +28,8 @@
   <div class="login-box">
 
     <div class="login-logo">
-        <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">AGENTE<b>AGENDA</b></a>
+      <a target="_blank" rel="noopener noreferrer" href="/">AGENTE<b>AGENDA</b>
+      </a>
     </div>
 
     <!-- /.login-logo -->
@@ -37,19 +41,21 @@
           Error 403 - Access Denied
         </h5>
         <p class="login-box-msg">
-          Authentication is required to access this resource 
-          - please <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Login</a>
+          Authentication is required to access this resource - please
+          <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Login</a>
         </p>
 
-        <br />
+        <br/>
         <div class="text-center">
-            Not a member? <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Register</a>
-            <br />
-            <br />
-            &copy; ColorLib 
-            <a target="_blank" rel="noopener noreferrer"
-               href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte"><b>Admin</b>LTE</a> 
-            - coded by <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
+          Not a member?
+          <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Register</a>
+          <br/>
+          <br/>
+          &copy; ColorLib
+          <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">
+            <b>Admin</b>LTE</a>
+          - coded by
+          <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
         </div>
 
       </div>
@@ -60,7 +66,7 @@
 
 {% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
+<!-- Specific Page JS goes HERE -->
 {% block javascripts %}
 
   <!-- jQuery -->
