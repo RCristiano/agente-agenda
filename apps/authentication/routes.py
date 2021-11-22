@@ -42,7 +42,9 @@ def login():
 
         # Something (user or pass) is not ok
         return render_template(
-            "accounts/login.html", msg="Wrong user or password", form=login_form
+            "accounts/login.html",
+            msg="Wrong user or password",
+            form=login_form,
         )
 
     if not current_user.is_authenticated:
@@ -53,7 +55,7 @@ def login():
 @blueprint.route("/register", methods=["GET", "POST"])
 def register():
     create_account_form = CreateAccountForm(request.form)
-    if "register" in request.form:
+    if create_account_form.validate_on_submit():
 
         username = request.form["username"]
         email = request.form["email"]
@@ -79,7 +81,7 @@ def register():
             )
 
         # else we can create the user
-        user = Users(**request.form)
+        user = Users(**create_account_form.data)
         db.session.add(user)
         db.session.commit()
 
@@ -90,8 +92,7 @@ def register():
             form=create_account_form,
         )
 
-    else:
-        return render_template("accounts/register.html", form=create_account_form)
+    return render_template("accounts/register.html", form=create_account_form)
 
 
 @blueprint.route("/logout")
