@@ -1,11 +1,15 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Register {% endblock %} 
+{% block title %}
+  Register
+{% endblock %}
 
 <!-- Element injected in the BODY element -->
-{% block body_class %} register-page {% endblock body_class %}
+{% block body_class %}
+  register-page
+{% endblock body_class %}
 
-<!-- Specific Page CSS goes HERE  -->
+<!-- Specific Page CSS goes HERE -->
 {% block stylesheets %}
 
   <!-- Google Font: Source Sans Pro -->
@@ -24,20 +28,26 @@
   <div class="register-box">
 
     <div class="login-logo">
-        <a target="_blank" rel="noopener noreferrer" 
-           href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">AGENTE<b>AGENDA</b></a>
-    </div>    
+      <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">AGENTE<b>AGENDA</b>
+      </a>
+    </div>
 
     <div class="card">
       <div class="card-body register-card-body">
         <p class="login-box-msg">
-            {% if msg %}
-                <span class="text-danger">{{ msg | safe }}</span>
-            {% else %}
-            <span>
-                Add your credentials
+          {% if msg or form.errors %}
+            <span class="text-danger">{{ msg | safe }}
+              {% for field, errors in form
+                .errors
+                .items() %}
+                {{ ', '.join(errors) }}
+              {% endfor %}
             </span>
-            {% endif %}            
+          {% else %}
+            <span>
+              Add your credentials
+            </span>
+          {% endif %}
         </p>
 
         <form role="form" method="post" action="">
@@ -68,13 +78,29 @@
               </div>
             </div>
           </div>
-          
+          <div class="input-group mb-3">
+            {{ form.confirm_password(placeholder="Repeate password", class="form-control", type="password") }}
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="icheck-primary">
+              {{ form.prestador(class="form-control") }}
+              {{ form.prestador.label }}
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">
-                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                <input type="checkbox" id="agreeTerms" name="terms" value="agree" required="">
                 <label for="agreeTerms">
-                I agree to the <a href="#">terms</a>
+                  I agree to the
+                  <a href="#">terms</a>
                 </label>
               </div>
             </div>
@@ -86,25 +112,28 @@
           </div>
         </form>
 
-        <br />
+        <br/>
         <div class="text-center">
-            Have an account? <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Login</a>
-            <br />
-            <br />
-            &copy; ColorLib 
-            <a target="_blank" rel="noopener noreferrer"
-               href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte"><b>Admin</b>LTE</a> 
-            - coded by <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
+          Have an account?
+          <a href="{{ url_for('authentication_blueprint.login') }}" class="text-center">Login</a>
+          <br/>
+          <br/>
+          &copy; ColorLib
+          <a target="_blank" rel="noopener noreferrer" href="https://appseed.us/admin-dashboards/flask-dashboard-adminlte">
+            <b>Admin</b>LTE</a>
+          - coded by
+          <a target="_blank" rel="noopener noreferrer" href="https://appseed.us">AppSeed</a>.
         </div>
 
       </div>
       <!-- /.form-box -->
-    </div><!-- /.card -->
+    </div>
+    <!-- /.card -->
   </div>
 
 {% endblock content %}
 
-<!-- Specific Page JS goes HERE  -->
+<!-- Specific Page JS goes HERE -->
 {% block javascripts %}
 
   <!-- jQuery -->
@@ -113,4 +142,3 @@
   <script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 {% endblock javascripts %}
-
