@@ -2,10 +2,6 @@
 
 A brief description of what this project does and who it's for
 
-## Appendix
-
-Any additional information goes here
-
 ## Demo
 
 <https://agente-agenda.herokuapp.com/login>
@@ -70,14 +66,6 @@ flask run --host=0.0.0.0 --port=5000
 ```
 
 Access the dashboard in browser: `http://127.0.0.1:5000/`
-
-## Running Tests
-
-To run tests, run the following command
-
-```bash
-
-```
 
 ## Authors
 
