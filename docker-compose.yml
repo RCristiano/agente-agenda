@@ -1,28 +1,35 @@
 version: '3.8'
 services:
-  appseed-app:
-    container_name: appseed_app
+  db:
+    image: docker.io/library/postgres:alpine
+    volumes:
+      - database_data:/var/lib/postgresql/data
+    command: -p ${DB_PORT:-5432}
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_INITDB_ARGS=--locale=pt-BR
+    ports:
+      - ${DB_PORT:-5432}:${DB_PORT:-5432}
+  app:
     restart: always
-    env_file: .env
     build: .
-    networks:
-      - db_network
-      - web_network
+    env_file:
+      - .env
+    environment:
+      - DEBUG=False
+      - DB_HOST=db
+    depends_on:
+      - db
   nginx:
-    container_name: nginx
     restart: always
     image: "nginx:latest"
     ports:
-      - "85:85"
+      - "8080:8080"
     volumes:
-      - ./nginx:/etc/nginx/conf.d
-    networks:
-      - web_network
-    depends_on: 
-      - appseed-app
-networks:
-  db_network:
-    driver: bridge
-  web_network:
-    driver: bridge
- 
+      - ./nginx:/etc/nginx/conf.d:Z
+    depends_on:
+      - app
+volumes:
+  database_data: {}
