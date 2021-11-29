@@ -1,13 +1,11 @@
 {% extends "layouts/base.html" %}
 
 {% block title %}
-  Home
+  Tables Data
 {% endblock %}
 
 <!-- Element injected in the BODY element -->
-{% block body_class %}
-  sidebar-mini pace-primary
-{% endblock body_class %}
+{% block body_class %}{% endblock body_class %}
 
 <!-- Specific Page CSS goes HERE -->
 {% block stylesheets %}
@@ -16,27 +14,29 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/static/assets/plugins/fontawesome-free/css/all.min.css">
-  <!-- pace-progress -->
-  <link rel="stylesheet" href="/static/assets/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
-  <!-- adminlte-->
+  <!-- DataTables -->
+  <link rel="stylesheet" href="/static/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/static/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <!-- Theme style -->
   <link rel="stylesheet" href="/static/assets/css/adminlte.min.css">
 
 {% endblock stylesheets %}
 
 {% block content %}
 
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Home</h1>
+            <h1>Conheça nossos profissionais</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">
-                <a href="/">Home</a>
+                <a href="#">Home</a>
               </li>
             </ol>
           </div>
@@ -47,32 +47,90 @@
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Serviço</th>
+                      <th>Salão</th>
+                      <th>Profissional</th>
+                      <th>Foto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Manicure</td>
+                      <td>BeautSalon</td>
+                      <td>Hanna</td>
+                      <td>
+                        <img src="/static/assets/img/user3-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Peeling Facial</td>
+                      <td>Esteticista</td>
+                      <td>Clara Jhonson</td>
+                      <td>
+                        <img src="/static/assets/img/user4-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Podologia</td>
+                      <td>John Doe's Salon</td>
+                      <td>Sarah Jordan</td>
+                      <td>
+                        <img src="/static/assets/img/user5-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Corte simples</td>
+                      <td>John Doe's Salon</td>
+                      <td>Joseph Sharps</td>
+                      <td>
+                        <img src="/static/assets/img/user6-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Shiatsu</td>
+                      <td>Zen Palace</td>
+                      <td>Carmen Dias</td>
+                      <td>
+                        <img src="/static/assets/img/user7-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Corte de cabelo</td>
+                      <td>John Doe's Salon</td>
+                      <td>John Doe</td>
+                      <td>
+                        <img src="/static/assets/img/user8-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>Serviço</th>
+                      <th>Salão</th>
+                      <th>Profissional</th>
+                      <th>Foto</th>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
+          <!-- /.col -->
         </div>
-        <div class="card-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
+        <!-- /.row -->
       </div>
-      <!-- /.card -->
-
+      <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
@@ -86,9 +144,29 @@
   <script src="/static/assets/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="/static/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- pace-progress -->
-  <script src="/static/assets/plugins/pace-progress/pace.min.js"></script>
+  <!-- DataTables -->
+  <script src="/static/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="/static/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="/static/assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="/static/assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
   <!-- AdminLTE App -->
   <script src="/static/assets/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="/static/assets/js/demo.js"></script>
+  <!-- page script -->
+  <script>
+    $(function () {
+      $("#example1").DataTable({"responsive": true, "autoWidth": false});
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true
+      });
+    });
+  </script>
 
 {% endblock javascripts %}
