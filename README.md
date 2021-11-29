@@ -69,5 +69,10 @@ Access the dashboard in browser: `http://127.0.0.1:5000/`
 
 ## Authors
 
-- [Rodrigo Cristiano](https://www.github.com/RCristiano)
-- [Fabio Souza](https://github.com/frlps)
+- Alexandre Junio dos Santos Vieira, RA 2010464
+- Fábio Borges Dias, RA 2007056
+- [Fabio Rogerio Lins Pereira, RA 2003660](https://github.com/frlps)
+- Felipe dos Santos Oliveira, RA 2015353
+- Gustavo Guerreiro Martinho da Cunha Sales, RA 2001642
+- Marcio M. Marcelli, RA 2002829
+- [Rodrigo Cristiano Ferreira Vieira, RA 2015474](https://www.github.com/RCristiano)
