@@ -31,7 +31,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Conheça nossos profissionais</h1>
+            <h1>Locais em que você pode encontrar o serviço que procura</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -56,7 +56,6 @@
                 <table id="profissionais" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th>Serviço</th>
                       <th>Salão</th>
                       <th>Profissional</th>
                       <th>Foto</th>
@@ -64,7 +63,6 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Manicure</td>
                       <td>BeautSalon</td>
                       <td>Hanna</td>
                       <td>
@@ -72,7 +70,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Peeling Facial</td>
                       <td>Esteticista</td>
                       <td>Clara Jhonson</td>
                       <td>
@@ -80,7 +77,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Podologia</td>
                       <td>John Doe's Salon</td>
                       <td>Sarah Jordan</td>
                       <td>
@@ -88,7 +84,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Corte simples</td>
                       <td>John Doe's Salon</td>
                       <td>Joseph Sharps</td>
                       <td>
@@ -96,7 +91,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Shiatsu</td>
                       <td>Zen Palace</td>
                       <td>Carmen Dias</td>
                       <td>
@@ -104,7 +98,6 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Corte de cabelo</td>
                       <td>John Doe's Salon</td>
                       <td>John Doe</td>
                       <td>
@@ -114,7 +107,6 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Serviço</th>
                       <th>Salão</th>
                       <th>Profissional</th>
                       <th>Foto</th>
@@ -155,6 +147,13 @@
   <script>
     $(function () {
       $("#profissionais").DataTable({"responsive": true, "autoWidth": false});
+    });
+
+    $("#profissionais tr td").click(function () {
+      window.location.href = "/profissional?q=" + $(this)
+        .closest("tr")
+        .find("td:first")
+        .text();
     });
   </script>
 
