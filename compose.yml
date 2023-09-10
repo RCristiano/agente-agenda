@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   db:
     image: docker.io/library/postgres:alpine
@@ -12,6 +12,7 @@ services:
       - POSTGRES_INITDB_ARGS=--locale=pt-BR
     ports:
       - ${DB_PORT:-5432}:${DB_PORT:-5432}
+
   app:
     restart: always
     build: .
@@ -22,11 +23,12 @@ services:
       - DB_HOST=db
     depends_on:
       - db
+
   nginx:
     restart: always
-    image: "nginx:latest"
+    image: docker.io/library/nginx:alpine
     ports:
-      - "8080:8080"
+      - 8080:8080
     volumes:
       - ./nginx:/etc/nginx/conf.d:Z
     depends_on:
