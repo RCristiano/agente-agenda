@@ -31,13 +31,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Locais em que você pode encontrar o serviço que procura</h1>
+            <h1>Conheça nossos profissionais</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">
                 <a href="#">Home</a>
               </li>
+              <li class="breadcrumb-item active">{{ request.args.get('q') }}</li>
             </ol>
           </div>
         </div>
@@ -53,52 +54,52 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="profissionais" class="table table-bordered table-striped">
+                <table id="servicos" class="table table-bordered table-striped">
                   <thead>
                     <tr>
-                      <th>Salão</th>
+                      <th>Serviço</th>
                       <th>Profissional</th>
                       <th>Foto</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>BeautSalon</td>
+                      <td>Podologia</td>
                       <td>Hanna</td>
                       <td>
                         <img src="/static/assets/img/user3-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                       </td>
                     </tr>
                     <tr>
-                      <td>Esteticista</td>
+                      <td>Manicure</td>
                       <td>Clara Jhonson</td>
                       <td>
                         <img src="/static/assets/img/user4-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                       </td>
                     </tr>
                     <tr>
-                      <td>John Doe's Salon</td>
+                      <td>Esteticista</td>
                       <td>Sarah Jordan</td>
                       <td>
                         <img src="/static/assets/img/user5-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                       </td>
                     </tr>
                     <tr>
-                      <td>John Doe's Salon</td>
+                      <td>Barbeiro</td>
                       <td>Joseph Sharps</td>
                       <td>
                         <img src="/static/assets/img/user6-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                       </td>
                     </tr>
                     <tr>
-                      <td>Zen Palace</td>
+                      <td>Hair Style</td>
                       <td>Carmen Dias</td>
                       <td>
                         <img src="/static/assets/img/user7-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                       </td>
                     </tr>
                     <tr>
-                      <td>John Doe's Salon</td>
+                      <td>Barbeiro</td>
                       <td>John Doe</td>
                       <td>
                         <img src="/static/assets/img/user8-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -107,7 +108,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Salão</th>
+                      <th>Serviço</th>
                       <th>Profissional</th>
                       <th>Foto</th>
                     </tr>
@@ -146,10 +147,10 @@
   <!-- page script -->
   <script>
     $(function () {
-      $("#profissionais").DataTable({"responsive": true, "autoWidth": false});
+      $("#servicos").DataTable({"responsive": true, "autoWidth": false});
     });
 
-    $("#profissionais tr td").click(function () {
+    $("#servicos tr td").click(function () {
       window.location.href = "/profissional?q=" + $(this)
         .closest("tr")
         .find("td:first")
